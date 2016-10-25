@@ -1,6 +1,7 @@
 /* eslint max-len: 0 */
 
 if (global._babelPolyfill) {
+  console.warn('"babel-polyfill" already imported. Ignored');
   // throw new Error("only one instance of babel-polyfill is allowed");  // HACK no throwing error
 } else {
 global._babelPolyfill = true;
