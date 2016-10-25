@@ -5,12 +5,12 @@ if (global._babelPolyfill) {
 } else {
 global._babelPolyfill = true;
 
-import "core-js/shim";
-import "regenerator-runtime/runtime";
+require("core-js/shim");
+require("regenerator-runtime/runtime");
 
 // Should be removed in the next major release:
 
-import "core-js/fn/regexp/escape";
+require("core-js/fn/regexp/escape"); // HACK may cause merge conflict with upstream
 
 let DEFINE_PROPERTY = "defineProperty";
 function define(O, key, value) {
