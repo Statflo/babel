@@ -1,8 +1,8 @@
 /* eslint max-len: 0 */
 
 if (global._babelPolyfill) {
-  throw new Error("only one instance of babel-polyfill is allowed");
-}
+  // throw new Error("only one instance of babel-polyfill is allowed");  // HACK no throwing error
+} else {
 global._babelPolyfill = true;
 
 import "core-js/shim";
@@ -27,3 +27,4 @@ define(String.prototype, "padRight", "".padEnd);
 "pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function(key) {
   [][key] && define(Array, key, Function.call.bind([][key]));
 });
+}
